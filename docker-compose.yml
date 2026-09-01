@@ -1,0 +1,32 @@
+services:
+  # ============================================================
+  # container_proyecto_16
+  # ============================================================
+  container_proyecto_16:
+    image: 
+    container_name: container_proyecto_16
+    restart: unless-stopped
+
+    depends_on:
+
+    environment:
+
+    networks:
+      - proyecto_16_network
+
+    volumes:
+      - /volumes_host:/volumes_container
+
+    ports:
+      - port_host:port_container
+    command:
+
+
+
+volumes:
+  volumes_host:
+
+networks:
+  proyecto_16_network:
+    name: proyecto_16_network
+    driver: bridge
