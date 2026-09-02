@@ -1,32 +1,31 @@
 services:
   # ============================================================
-  # container_proyecto_16
+  # container_postgres_16
   # ============================================================
-  container_proyecto_16:
-    image: 
-    container_name: container_proyecto_16
+  container_postgres_16:
+    image: postgres:16
+    container_name: container_postgres_16
     restart: unless-stopped
 
-    depends_on:
-
     environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: postgres
 
     networks:
-      - proyecto_16_network
+      - postgres_16_network
 
     volumes:
-      - /volumes_host:/volumes_container
+      - volumes_postgres_16:/var/lib/postgresql/data
 
     ports:
-      - port_host:port_container
-    command:
-
+      - "5632:5432"
 
 
 volumes:
-  volumes_host:
+  volumes_postgres_16:
 
 networks:
-  proyecto_16_network:
-    name: proyecto_16_network
+  postgres_16_network:
+    name: postgres_16_network
     driver: bridge
