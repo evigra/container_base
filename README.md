@@ -5,7 +5,7 @@ This repository contains the template to generate the containers
 ------------------
 
 # GITHUB CONFIGURATION 
-
+git clone git@github.com:evigra/container_base.git
 
 eval "$(ssh-agent -s)"; ssh-add ~/.ssh/e.vizcaino@solesgps.com
 git remote set-url origin git@github.com:evigra/container_base.git
