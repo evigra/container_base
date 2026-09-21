@@ -21,6 +21,11 @@ services:
     ports:
       - "5632:5432"
 
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 7G      
 
 volumes:
   volumes_postgres_16:
