@@ -24,36 +24,56 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "2"
-          memory: 7G      
+          cpus: "1.5"
+          memory: 3G
 
 
     command:
       - postgres
       - -c
-      - shared_buffers=3GB
+      - shared_buffers=768MB
+
       - -c
-      - effective_cache_size=7GB
+      - effective_cache_size=2GB
+
       - -c
-      - maintenance_work_mem=512MB
+      - work_mem=8MB
+
       - -c
-      - work_mem=16MB
+      - maintenance_work_mem=256MB
+
       - -c
-      - max_connections=100
+      - autovacuum_work_mem=128MB
+
+      - -c
+      - max_connections=50
+
       - -c
       - wal_buffers=16MB
+
       - -c
       - checkpoint_completion_target=0.9
+
       - -c
-      - min_wal_size=1GB
+      - min_wal_size=512MB
+
       - -c
-      - max_wal_size=4GB
+      - max_wal_size=2GB
+
       - -c
       - random_page_cost=1.1
+
       - -c
-      - effective_io_concurrency=200
+      - effective_io_concurrency=100
+
       - -c
       - default_statistics_target=100
+
+      - -c
+      - autovacuum=on
+
+      - -c
+      - idle_in_transaction_session_timeout=300000
 
 volumes:
   volumes_postgres_16:
